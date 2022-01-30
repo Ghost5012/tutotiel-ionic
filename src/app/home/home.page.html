@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="medium">
+  
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>
+      Gestion de Stock
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/new-product']">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Searchbar with cancel button never shown -->
+  <!-- <ion-searchbar [formControl]="searchField" debounce="100"></ion-searchbar> -->
+    <ion-list>
+      <ion-item *ngFor="let p of products">
+        <ion-avatar  [routerLink]="['/detail-product', p.reference]">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+      <ion-label>
+        <h3 style="margin-left:8px">{{p.name}}</h3>
+        <p style="margin-left:8px">{{p.description}}</p>
+      </ion-label>
+        <!--<ion-button [routerLink]="['/update-product', p.reference]" slot="end">-->
+          <ion-icon  [routerLink]="['/update-product', p.reference]" name="pencil" slot="end" color="danger" fill="outline"></ion-icon>
+        <!--</ion-button>
+        <ion-button [routerLink]="['/delete-product', p.reference]" slot="end">-->
+          <ion-icon  (click)="deleteProduct(p.id)" name="close" slot="end" color="danger" fill="outline"></ion-icon>
+        <!--</ion-button>-->
+      </ion-item>
+    </ion-list>
+    
+</ion-content>

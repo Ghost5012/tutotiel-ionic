@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title>New Product</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="createProduct($event)">
+    <ion-item>
+      <ion-input name="name" type="text" [(ngModel)]="new_product.name" placeholder="Product Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="reference" type="text" [(ngModel)]="new_product.reference" placeholder="Reference"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label> Quantité : </ion-label>
+      <ion-input name="qte" type="number" [(ngModel)]="new_product.qte" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="description" type="text" [(ngModel)]="new_product.description" placeholder="Product description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="pu" type="number" [(ngModel)]="new_product.pu" placeholder="Product Price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="image" type="file" [(ngModel)]="image" (change)="imagePath($event)" accept=".png,.jpg,.jpge/*"value="Image File"></ion-input>
+      <ion-avatar *ngIf="imageURL">
+          <img [src]="imageURL"/>
+      </ion-avatar>
+    </ion-item>
+      <ion-button color="medium" style="margin-left: 25%; margin-top:10%"> Create Product</ion-button>
+  </form>
+</ion-content>

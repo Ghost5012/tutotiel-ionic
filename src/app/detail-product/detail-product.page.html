@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-title>detail-product</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!--{{product.name}}-->
+<ion-list>
+    <ion-avatar class="avatar">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <!--</ion-item>-->
+    <ion-item>
+      {{product.name}}
+    </ion-item>
+    <ion-item>
+      {{product.description}}
+    </ion-item>
+    <ion-item>
+      {{product.qte}}
+    </ion-item>
+    <ion-item>
+      {{product.pu}}
+    </ion-item>
+</ion-list>
+</ion-content>
